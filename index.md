@@ -1,4 +1,3 @@
-# LaM-SLidE
 <img src="assets/overview.svg" />
 
 # Experiments
