@@ -11,7 +11,10 @@ become non-deterministic, but the atoms remain traceable over time.
 
 # Method
 
-<img src="assets/method.svg" />
+<center>
+  <img src="assets/method.svg" />
+</center>
+
 
 # Experiments
 
