@@ -11,9 +11,9 @@ become non-deterministic, but the atoms remain traceable over time.
 
 # Method
 
-<center>
+<p align="center">
   <img src="assets/method.svg" />
-</center>
+</p>
 
 
 # Experiments
