@@ -11,6 +11,8 @@ become non-deterministic, but the atoms remain traceable over time.
 
 # Method
 
+<img src="assets/method.svg" />
+
 # Experiments
 
 ## Organic Molecules (MD17)
