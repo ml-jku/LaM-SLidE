@@ -1,4 +1,6 @@
-<img src="assets/overview.svg" />
+<p align="center">
+  <img src="assets/overview.svg" />
+</p>
 
 # Introduction
 Understanding the dynamics of spatial systems is a fundamental challenge 
@@ -14,7 +16,6 @@ become non-deterministic, but the atoms remain traceable over time.
 <p align="center">
   <img src="assets/method.svg" />
 </p>
-
 
 # Experiments
 
