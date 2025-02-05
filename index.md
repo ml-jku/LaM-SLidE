@@ -1,11 +1,15 @@
 <p align="center">
-  <img src="assets/overview.svg" />
+  <img src="assets/overview.svg" width="100%" />
 </p>
 
 # Introduction
 Understanding the dynamics of spatial systems is a fundamental challenge 
-in many scientific and engineering domains. In this paper, we focus on spatial dynamical systems, where scenes are composed of distinguishable entities at defined spatial locations. 
-Modeling temporal trajectories of such entities quickly becomes challenging, especially when (i) stochasticity is involved, and (ii) when entities should be traceable. 
+in many scientific and engineering domains. In this paper, we focus on spatial dynamical systems, where *scenes* are composed of distinguishable entities at defined spatial locations. 
+Modeling temporal trajectories of such entities quickly becomes challenging, especially when:
+
+  * stochasticity is involved, and
+  * when entities should be *traceable*.
+    
 A prime example is molecular dynamics, where trajectories of individual atoms 
 are modeled via Langevin dynamics, which accounts for omitted degrees of freedom 
 by using of stochastic differential equations. Consequently, the trajectories of the atoms themselves 
@@ -14,7 +18,7 @@ become non-deterministic, but the atoms remain traceable over time.
 # Method
 
 <p align="center">
-  <img src="assets/method.svg" />
+  <img src="assets/method.svg" width="100%" />
 </p>
 
 # Experiments
