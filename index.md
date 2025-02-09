@@ -37,10 +37,17 @@ become non-deterministic, but the atoms remain traceable over time.
 </div>
 
 ## Tetrapeptides
-
+### Sampled Trajectories 
 <div style="display: flex; justify-content: center;align-items: center;">
   <img src="assets/APWF_text.gif" width="300" />
   <img src="assets/CPEE_text.gif" width="300" />
   <img src="assets/SDFS_text.gif" width="300" />
 </div>
 
+### TICA and Backbone Angles
+
+
+<div style="display: flex; justify-content: center;align-items: center;">
+  <img src="assets/5_4AA_0.png" width="400" />
+  <img src="assets/5_4AA_1.png" width="400" />
+</div>
