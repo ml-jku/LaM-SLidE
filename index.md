@@ -26,7 +26,8 @@ become non-deterministic, but the atoms remain traceable over time.
 
 ## Basketball (NBA)
 
-### Rebound
+### Sampled Trajectories 
+#### Rebound
 <div style="display: flex; justify-content: center;align-items: center;">
   <img src="assets/rebound_0.gif" width="450" />
   <img src="assets/rebound_1.gif" width="450" />
@@ -36,7 +37,7 @@ become non-deterministic, but the atoms remain traceable over time.
   <img src="assets/rebound_3.gif" width="450" />
 </div>
 
-### Scoring
+#### Scoring
 <div style="display: flex; justify-content: center;align-items: center;">
   <img src="assets/score_0.gif" width="450" />
   <img src="assets/score_1.gif" width="450" />
@@ -49,7 +50,7 @@ become non-deterministic, but the atoms remain traceable over time.
 
 
 ## Organic Molecules (MD17)
-
+### Sampled Trajectories 
 <div style="display: flex; justify-content: center;align-items: center;">
   <img src="assets/aspirin.gif" width="300" />
   <img src="assets/ethanol.gif" width="300" />
