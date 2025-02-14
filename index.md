@@ -29,22 +29,22 @@ become non-deterministic, but the atoms remain traceable over time.
 ### Sampled Trajectories 
 #### Rebound
 <div style="display: flex; justify-content: center;align-items: center;">
-  <img src="assets/rebound_0.gif" width="450" />
-  <img src="assets/rebound_1.gif" width="450" />
+  <img src="assets/rebound_0.gif" width="600" />
+  <img src="assets/rebound_1.gif" width="600" />
 </div>
 <div style="display: flex; justify-content: center;align-items: center;">
-  <img src="assets/rebound_2.gif" width="450" />
-  <img src="assets/rebound_3.gif" width="450" />
+  <img src="assets/rebound_2.gif" width="600" />
+  <img src="assets/rebound_3.gif" width="600" />
 </div>
 
 #### Scoring
 <div style="display: flex; justify-content: center;align-items: center;">
-  <img src="assets/score_0.gif" width="450" />
-  <img src="assets/score_1.gif" width="450" />
+  <img src="assets/score_0.gif" width="600" />
+  <img src="assets/score_1.gif" width="600" />
 </div>
 <div style="display: flex; justify-content: center;align-items: center;">
-  <img src="assets/score_2.gif" width="450" />
-  <img src="assets/score_3.gif" width="450" />
+  <img src="assets/score_2.gif" width="600" />
+  <img src="assets/score_3.gif" width="600" />
 </div>
 
 
