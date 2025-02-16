@@ -34,9 +34,11 @@ become non-deterministic, but the atoms remain traceable over time.
 # Dynamical Systems
 A dynamical systems can be described by the following differential equation:
 
-```math
+
+$$
 \frac{d}{dt}\mathbf{s} = f(\mathbf{s},t,\mathbf{u};\beta) + \mathbf{d}
-```
+$$
+
 
 Here, $\mathbf{s}$ represents the state of the system - imagine, for instance, the current weather conditions including temperature and humidity. The variable $t$ denotes the time point at which we observe the state, while $\mathbf{u}$ represents a control parameter. This control could be something like a hail prevention airplane spraying silver iodide into clouds, or in a simpler example, applying force to a cart supporting a pendulum. The parameter $\beta$ characterizes the system's inherent properties, such as a pendulum's length or mass. The system can be also influenced by random disturbances $\mathbf{d}$.
 
