@@ -36,7 +36,9 @@ A dynamical systems can be described by the following differential equation:
 
 
 $$
+\begin{equation}
 \frac{d}{dt}\mathbf{s} = f(\mathbf{s},t,\mathbf{u};\beta) + \mathbf{d}
+\end{equation}
 $$
 
 
