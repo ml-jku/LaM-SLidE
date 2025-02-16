@@ -66,9 +66,9 @@ Given the observed states $\mathbf{y}^{[1:T_o]}$, our goal is to predict the fut
 
 ## LaM-SLidE
 
-### Entity identifiers
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
   <div style="flex: 1;">
+    <h3>Entity identifiers</h3>
     Each entity in our system gets a unique ID - think of it like name tags for atoms. In the image on the right you can see an Aspirin molecule, were we assing IDs to the individual atoms. For better illustration we only labeld four atoms, but imagine that every atom gets an ID.
   </div>
   <div style="flex: 1;">
