@@ -30,6 +30,7 @@ become non-deterministic, but the atoms remain traceable over time.
 
 # Dynamical Systems
 A dynamical systems can be described by the following differential equation:
+
 $$\frac{d}{dt}\mathbf{s} = f(\mathbf{s},t,\mathbf{u};\beta) + \mathbf{d}$$
 
 
@@ -151,4 +152,4 @@ Given the observed states $\mathbf{y}^{[1:T_o]}$, our goal is to predict the fut
 
 # Further reads
 
-Another approach of latent modeling was introduced by [UPT: Universal Phisicy Transformers](https://arxiv.org/abs/2402.12365) in the field of fluid dynamics (Navier-Stokes equations). Unlike our approach, UPT models systems with billions of particles that become untrackable individually. However, for these systems, tracking individual particles is often unnecessary - instead, the underlying field is modeled, as the primarily interst lies in the overall behavior of the system and not the individual particles. E.g. in weather forcasting we are not interested where each individual atom is placed in the atmosphere but want to predicte the overall weather.
+Another approach of modeling dynamical systems in latent space was introduced in[UPT: Universal Phisicy Transformers](https://arxiv.org/abs/2402.12365) in the field of fluid dynamics (Navier-Stokes equations). Unlike our approach, UPT models systems with billions of particles that become untrackable individually. However, for these systems, tracking individual particles is often unnecessary - instead, the underlying field is modeled, as the primarily interst lies in the overall behavior of the system and not the individual particles. E.g. in weather forcasting we are not interested where each individual atom is placed in the atmosphere but want to predicte the overall weather.
