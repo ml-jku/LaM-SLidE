@@ -2,7 +2,7 @@
   <img src="assets/overview.svg" width="100%" />
 </p>
 
-<script type="text/javascript" id="MathJax-script" async
+<!-- <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 <script>
@@ -16,7 +16,7 @@
       fontCache: 'global'
     }
   };
-</script>
+</script> -->
 
 # Introduction
 Understanding the dynamics of spatial systems is a fundamental challenge 
