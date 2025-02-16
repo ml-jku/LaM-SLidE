@@ -3,3 +3,4 @@ description: "{La}tent Space {M}odeling of Spatial Dynamical {S}ystems via {Li}n
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-cayman
+use_math: true

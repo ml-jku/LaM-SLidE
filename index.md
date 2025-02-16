@@ -2,7 +2,7 @@
   <img src="assets/overview.svg" width="100%" />
 </p>
 
-<script type="text/javascript" id="MathJax-script" async
+<!-- <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 <script>
@@ -16,7 +16,7 @@
       fontCache: 'global'
     }
   };
-</script>
+</script> -->
 
 # Introduction
 Understanding the dynamics of spatial systems is a fundamental challenge 
@@ -39,7 +39,7 @@ $$\frac{d}{dt}\mathbf{s} = f(\mathbf{s},t,\mathbf{u};\beta) + \mathbf{d}$$
 
 Here, $\mathbf{s}$ represents the state of the system - imagine, for instance, the current weather conditions including temperature and humidity. The variable $t$ denotes the time point at which we observe the state, while $\mathbf{u}$ represents a control parameter. This control could be something like a hail prevention airplane spraying silver iodide into clouds, or in a simpler example, applying force to a cart supporting a pendulum. The parameter $\beta$ characterizes the system's inherent properties, such as a pendulum's length or mass. The system can be also influenced by random disturbances $\mathbf{d}$.
 
-At its core, $f$ is a vector-valued function that describes how the system state changes given its current state $\mathbf{s}$. Which can seen as a vector field, where at each point in the state space, $f$ indicates the direction and magnitude of change.
+At its core, $f$ is a vector-valued function that describes how the system state changes given its current state $\mathbf{s}$. Which can be seen as a vector field, where at each point in the state space, $f$ indicates the direction and magnitude of change.
 
 An important practical consideration is that we rarely have access to the complete state $\mathbf{s}$. Instead, we typically only have access to measurement $\mathbf{y}=\mathbf{g}(\mathbf{s},t) + \mathbf{n}$. Consider the human brain as an example: while it contains billions of neurons, we can only measure the activity of a small fraction of them at any given time. Furthermore, the system might be influenced by latent variables - hidden factors that we cannot measure and measurements can also include noise $\mathbf{n}$
 
