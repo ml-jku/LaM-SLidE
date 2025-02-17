@@ -1,0 +1,54 @@
+# @package _global_
+
+defaults:
+  - /data: pedestrian
+  - /model/pedestrian@model: first-stage
+  - override /logger: wandb
+  - override /trainer: default
+
+first_stage: True
+num_timesteps: 20
+num_entities: 10
+
+# Dataset-specific parameters, these are positional mean and std of the train set.
+dataset: all
+dataset_constants:
+  univ:
+    shift: 5.32
+    scale: 3.69
+  eth:
+    shift: 7.08
+    scale: 3.51
+  hotel:
+    shift: 7.32
+    scale: 3.16
+  zara1:
+    shift: 6.96
+    scale: 3.57
+  zara2:
+    shift: 7.24
+    scale: 3.66
+  all:
+    shift: 6.90
+    scale: 3.57
+shift: ${dataset_constants.${dataset}.shift}
+scale: ${dataset_constants.${dataset}.scale}
+
+logger:
+  wandb:
+    name: ${dataset}
+    project: pedestrian-first-stage
+
+trainer:
+  log_every_n_steps: 10
+  max_epochs: 6000
+  check_val_every_n_epoch: 10
+
+callbacks:
+  model_checkpoint:
+    monitor: val/pos_loss
+    mode: min
+  config_lr_scheduler:
+    _target_: src.callbacks.config_lr_scheduler.ConfigLRScheduler
+
+tags: [final]

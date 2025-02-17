@@ -1,0 +1,6 @@
+# @package _global_
+
+dataset: score
+
+first_stage_settings:
+  run_id: nsktt0xz

@@ -1,0 +1,63 @@
+_target_: src.models.composites.second_stage.nba.Wrapper
+_recursive_: False
+monitor: val/loss
+interval: step
+compile: ${compile}
+cond_idx: [0, 8]
+post_process: False
+mask_cond_mean: True
+num_timesteps: ${num_timesteps}
+
+backbone:
+  _target_: src.models.components.latent.latent_si_v31.LatentSIV3
+  depth: 6
+  in_dim: 32
+  hidden_size: 256
+  mlp_ratio: 4
+  num_heads: 16
+  checkpointing: False
+  theta: 10_000
+  normalize: True
+  attention_mode: scaled_dot_product
+  reset_parameters: True
+
+loss:
+  _target_: src.models.composites.second_stage.nba.Loss
+  weight_si_loss: 1.0
+  weight_pos_loss: 0.25
+  weight_inter_dist_loss: 0.25
+  weight_norm_loss: 0.0
+  loss_pos:
+    _target_: src.modules.losses.MaskedMSELoss
+  loss_inter_dist:
+    _target_: src.modules.losses.InterDistanceLoss
+  loss_norm:
+    _target_: src.modules.losses.MaskedNormLoss
+  calc_additional_losses: True
+
+first_stage_model:
+  class_name: null
+  path: null
+  _convert_: partial
+
+transport:
+  _target_: src.modules.transport.CreateTransport
+  path_type: GVP
+  prediction: data
+
+ema:
+  _target_: src.modules.ema.ExponentialMovingAverage
+  _partial_: True
+  decay: 0.999
+
+optimizer:
+  _target_: torch.optim.AdamW
+  _partial_: True
+  lr: 1e-3
+
+scheduler:
+  _target_: src.modules.schedulers.LinearWarmupCosineAnnealingLR
+  _partial_: True
+  warmup_epochs: 0
+  max_epochs: ${trainer.max_epochs}
+  min_lr: 1e-7

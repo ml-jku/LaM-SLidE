@@ -1,0 +1,8 @@
+# @package _global_
+
+dataset: univ
+data:
+  scenes: [univ]
+
+first_stage_settings:
+  run_id: 6ew445gc

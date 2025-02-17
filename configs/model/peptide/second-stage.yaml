@@ -1,0 +1,67 @@
+_target_: src.models.composites.second_stage.peptide.Wrapper
+_recursive_: False
+monitor: val/loss
+interval: step
+compile: False
+n_atom_types: 1 # Legacy
+cond_idx: [0, 1]
+mask_cond_mean: True
+n_timesteps: ${n_timesteps}
+loss:
+  _target_: src.models.composites.second_stage.peptide.Loss
+  loss_si_weight: 1 # SI loss comes from transport, only setting weight here
+  loss_pos_weight: 0.25
+  loss_pos_frame_weight: 0.25
+  loss_inter_distance_weight: 0.25
+  loss_torsion_weight: 0.0
+  loss_norm_weight: 0.0
+  loss_pos:
+    _target_: src.modules.losses.MaskedMSELoss
+  loss_pos_frame:
+    _target_: src.modules.losses.MaskedMSELoss
+  loss_inter_distance:
+    _target_: src.modules.losses.InterDistanceLoss
+  loss_torsion:
+    _target_: src.modules.losses.MaskedCosineLossV2
+  loss_norm:
+    _target_: src.modules.losses.MaskedNormLoss
+  calc_additional_losses: True
+
+backbone:
+  _target_: src.models.components.latent.latent_si_v31.LatentSIV3
+  depth: 7
+  in_dim: 96
+  hidden_size: 384
+  num_heads: 16
+  checkpointing: False
+  theta: 10_000
+  normalize: False
+  attention_mode: scaled_dot_product
+  mlp_ratio: 4
+
+first_stage_model:
+  class_name: null
+  path: null
+  _convert_: partial
+
+optimizer:
+  _target_: torch.optim.AdamW
+  _partial_: True
+  lr: 0.001
+
+ema:
+  _target_: src.modules.ema.ExponentialMovingAverage
+  _partial_: True
+  decay: 0.999
+
+transport:
+  _target_: src.modules.transport.CreateTransport
+  path_type: GVP
+  prediction: data
+
+scheduler:
+  _target_: src.modules.schedulers.LinearWarmupCosineAnnealingLR
+  _partial_: True
+  warmup_epochs: 0
+  max_epochs: ${trainer.max_epochs}
+  min_lr: 1e-6

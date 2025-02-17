@@ -1,0 +1,45 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - paths: default
+  - hydra: joblib
+
+task_name: sample
+
+wandb_run_id: fa2qwzxw
+wandb_project: peptide-second-stage
+wandb_entity: ${oc.env:WANDB_ENTITY}
+
+ckpt_last: true
+data_dir: ${paths.data_dir}/mdgen/4AA-sims/test
+trajs_output_dir: ${paths.output_dir}/trajs
+
+split: ${paths.data_dir}/mdgen/splits/4AA_test.csv
+num_rollouts: 10
+cond_frame_idx: 0 # For test set evaluation we condition on the first frame of the ref trajectory.
+sampling_method: ODE
+sampling_kwargs:
+  sampling_method: dopri5
+
+full_precision: true # if model is trained with bf16-mixed, but want to sample with fp32
+
+pdbdir: ${trajs_output_dir}
+
+device: cuda:0
+seed: 42
+
+# For analysis
+analyze: true
+mddir: ${paths.data_dir}/mdgen/4AA-sims-raw
+save: true
+plot: true
+save_name: out.pkl
+pdb_ids: null
+no_msm: true
+no_decorr: true
+no_traj_msm: true
+truncate: null
+msm_lag: 10
+ito: false
+num_workers: 20

@@ -1,0 +1,22 @@
+defaults:
+  - default
+  - override launcher: submitit_slurm
+  - _self_
+
+launcher:
+  _target_: hydra_plugins.hydra_submitit_launcher.submitit_launcher.SlurmLauncher
+  partition: gpu
+  account: ${oc.env:SLURM_ACCOUNT}
+  qos: default
+  cpus_per_task: ${num_workers}
+  tasks_per_node: ${n_gpus}
+  nodes: ${n_nodes}
+  timeout_min: 600
+  setup:
+    - cd ${paths.root_dir}
+    - source activate ${oc.env:CONDA_ENV}
+    - export HYDRA_FULL_ERROR=1
+    - export WANDB_BASE_URL=${oc.env:WANDB_BASE_URL}
+  srun_args:
+    - --cpus-per-task=${num_workers} # Meluxina related, need to set also on srun level https://docs.lxp.lu/first-steps/handling_jobs/#gpu-job
+      # I installed here the hydra dev version because of the srun_args: https://github.com/facebookresearch/hydra/tree/main/plugins/hydra_submitit_launcher

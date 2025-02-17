@@ -1,0 +1,9 @@
+defaults:
+  - second-stage
+  - _self_
+
+_target_: src.models.composites.second_stage.md17_pos.MD17PosClassCondLitModule
+n_classes: 8 # This have to be consistent with the molecule indices in the md17 src.datasets.md17 class.
+vec_in_dim: 256
+backbone:
+  vec_in_dim: ${model.vec_in_dim}

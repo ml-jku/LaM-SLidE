@@ -1,0 +1,70 @@
+# @package _global_
+
+defaults:
+  - /model/md17@model: second-stage
+  - /data: md17
+  - override /logger: wandb
+  - override /trainer: default
+
+first_stage: False
+test: True
+
+num_entities: 32
+num_timesteps: 30
+
+first_stage_settings:
+  run_id: vcjju291
+  project: md17-first-stage
+  entity: ${oc.env:WANDB_ENTITY}
+  overwrites: []
+  model_path: null
+  last: False
+
+molecule_name: all
+n_atom_types: 10
+dataset_constants:
+  aspirin:
+    scale: 1.721
+  benzene:
+    scale: 1.169
+  ethanol:
+    scale: 0.893
+  malonaldehyde:
+    scale: 0.989
+  naphthalene:
+    scale: 1.515
+  salicylic:
+    scale: 1.429
+  toluene:
+    scale: 1.339
+  uracil:
+    scale: 1.173
+  all:
+    scale: 1.376
+shift: 0
+scale: ${dataset_constants.${molecule_name}.scale}
+
+logger:
+  wandb:
+    name: ${molecule_name}
+    project: md17-second-stage
+    entity: ${oc.env:WANDB_ENTITY}
+
+trainer:
+  max_epochs: 1000
+  check_val_every_n_epoch: 10
+  precision: bf16-mixed
+  limit_val_batches: 5
+
+resume: True
+ckpt_path: null
+
+callbacks:
+  model_checkpoint:
+    monitor: val/malonaldehyde/ade
+    mode: min
+  config_lr_scheduler:
+    _target_: src.callbacks.config_lr_scheduler.ConfigLRScheduler
+
+tags: []
+seed: 43

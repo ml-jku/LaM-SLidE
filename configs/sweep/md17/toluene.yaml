@@ -1,0 +1,8 @@
+# @package _global_
+
+molecule_name: toluene
+data:
+  molecule_names: [toluene]
+
+first_stage_settings:
+  run_id: fnojnrkl

@@ -1,0 +1,8 @@
+# @package _global_
+
+molecule_name: malonaldehyde
+data:
+  molecule_names: [malonaldehyde]
+
+first_stage_settings:
+  run_id: fi8111ij

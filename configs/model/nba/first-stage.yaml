@@ -1,0 +1,109 @@
+defaults:
+  - _self_
+
+# Model Configuration
+_target_: src.models.composites.first_stage.nba.Wrapper
+_recursive_: False
+monitor: val/loss
+interval: step
+compile: ${compile}
+shift: ${shift}
+scale: ${scale}
+
+loss:
+  _target_: src.models.composites.first_stage.nba.Loss
+  loss_pos_weight: 1
+  loss_pos:
+    _target_: src.modules.losses.MaskedMSELoss
+
+  loss_inter_distance_weight: 1
+  loss_inter_distance:
+    _target_: src.modules.losses.InterDistanceLoss
+
+  loss_norm_weight: 0
+  loss_norm:
+    _target_: src.modules.losses.MaskedNormLoss
+
+  loss_team_weight: 0.01
+  loss_team:
+    _target_: torch.nn.CrossEntropyLoss
+
+  loss_group_weight: 0.01
+  loss_group:
+    _target_: torch.nn.CrossEntropyLoss
+
+backbone:
+  _target_: src.models.composites.first_stage.nba.Backbone
+  dim_input: 128
+  dim_latent: 32
+  act:
+    _target_: src.modules.torch_modules.GELU
+    _partial_: True
+
+  embed_entity:
+    _target_: src.modules.entity_embeddings.EntityEmbeddingOrthogonal
+    n_entiy_embeddings: ${num_entities}
+    embedding_dim: 128
+    max_norm: 1
+
+  embed_team:
+    _target_: torch.nn.Embedding
+    num_embeddings: 3
+    embedding_dim: 32
+
+  embed_group:
+    _target_: torch.nn.Embedding
+    num_embeddings: 2
+    embedding_dim: 32
+
+  encoder:
+    _target_: src.models.components.encoder.Encoder
+    _partial_: True
+    dim_input: ${model.backbone.dim_input}
+    dim_latent: ${model.backbone.dim_latent}
+    dim_head_cross: 16
+    dim_head_latent: 16
+    num_latents: 8
+    num_head_cross: 2
+    num_head_latent: 2
+    num_block_attn: 1
+    num_block_cross: 1
+    qk_norm: True
+    act: ${model.backbone.act}
+
+  decoder:
+    _target_: src.models.components.decoder.Decoder
+    _partial_: True
+    outputs:
+      pos: 2
+      team: 3
+      group: 2
+    dim_latent: ${model.backbone.encoder.dim_latent}
+    dim_query: ${model.backbone.embed_entity.embedding_dim}
+    dim_head_cross: 16
+    dim_head_latent: 16
+    num_head_cross: 2
+    num_head_latent: 2
+    num_block_cross: 0
+    num_block_attn: 1
+    dropout_query: 0.1
+    dropout_latent: 0.0
+    qk_norm: ${model.backbone.encoder.qk_norm}
+    act: ${model.backbone.act}
+
+optimizer:
+  _target_: torch.optim.AdamW
+  _partial_: True
+  lr: 4e-4
+
+scheduler:
+  _target_: src.modules.schedulers.LinearWarmupCosineAnnealingLR
+  _partial_: True
+  warmup_epochs: 0
+  max_epochs: ${trainer.max_epochs}
+  min_lr: 1e-7
+
+ema:
+  _target_: src.modules.ema.ExponentialMovingAverage
+  _partial_: True
+  decay: 0.999

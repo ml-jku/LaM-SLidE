@@ -1,0 +1,8 @@
+# @package _global_
+
+molecule_name: aspirin
+data:
+  molecule_names: [aspirin]
+
+first_stage_settings:
+  run_id: klr2nxoh

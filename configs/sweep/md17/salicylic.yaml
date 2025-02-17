@@ -1,0 +1,8 @@
+# @package _global_
+
+molecule_name: salicylic
+data:
+  molecule_names: [salicylic]
+
+first_stage_settings:
+  run_id: ztlidd0p

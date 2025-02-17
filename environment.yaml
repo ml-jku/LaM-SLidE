@@ -1,0 +1,15 @@
+name: pyt25
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.4
+  - lightning
+
+  - pip:
+    - wandb
+    - hydra-core

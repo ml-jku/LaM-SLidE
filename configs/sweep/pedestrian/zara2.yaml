@@ -1,0 +1,8 @@
+# @package _global_
+
+dataset: zara2
+data:
+  scenes: [zara2]
+
+first_stage_settings:
+  run_id: w5hqq3c6

@@ -1,0 +1,60 @@
+# @package _global_
+
+defaults:
+  - /model/md17@model: first-stage
+  - /data: md17
+  - override /logger: wandb
+  - override /trainer: default
+  - _self_
+
+first_stage: True
+test: False
+
+num_timesteps: 30
+num_entities: 32
+
+molecule_name: all
+n_atom_types: 10
+dataset_constants:
+  aspirin:
+    scale: 1.721
+  benzene:
+    scale: 1.169
+  ethanol:
+    scale: 0.893
+  malonaldehyde:
+    scale: 0.989
+  naphthalene:
+    scale: 1.515
+  salicylic:
+    scale: 1.429
+  toluene:
+    scale: 1.339
+  uracil:
+    scale: 1.173
+  all:
+    scale: 1.376
+shift: 0
+scale: ${dataset_constants.${molecule_name}.scale}
+
+logger:
+  wandb:
+    name: ${molecule_name}
+    project: md17-first-stage
+
+trainer:
+  log_every_n_steps: 10
+  max_epochs: 3_000
+  check_val_every_n_epoch: 25
+
+resume: True
+ckpt_path: null
+
+callbacks:
+  model_checkpoint:
+    monitor: val/pos_loss
+    mode: min
+  config_lr_scheduler:
+    _target_: src.callbacks.config_lr_scheduler.ConfigLRScheduler
+
+tags: []

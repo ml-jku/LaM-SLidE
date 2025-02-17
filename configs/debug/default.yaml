@@ -1,0 +1,45 @@
+# @package _global_
+
+task_name: debug
+compile: False
+
+data:
+  batch_size: 5
+  num_workers: 0
+  persistent_workers: False
+  pin_memory: False
+  prefetch_factor: null
+  rand_rotation: True
+  # rand_translation: 1
+
+hydra:
+  job_logging:
+    root:
+      level: DEBUG
+  job:
+    env_set:
+      DEBUG: 1
+
+logger:
+  wandb:
+    name: debug
+
+trainer:
+  # overfit_batches: 1
+  limit_train_batches: 5
+  limit_val_batches: 5
+  limit_test_batches: 5
+  log_every_n_steps: 10
+  check_val_every_n_epoch: 5
+  deterministic: True
+  num_sanity_val_steps: 0
+  max_epochs: 100
+  accelerator: cpu
+  devices: 1
+  precision: 32-true
+
+log_grads: True
+
+extras:
+  ignore_warnings: False
+  enforce_tags: False

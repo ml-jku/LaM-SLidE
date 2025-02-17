@@ -1,0 +1,8 @@
+# @package _global_
+
+dataset: eth
+data:
+  scenes: [eth]
+
+first_stage_settings:
+  run_id: ku0dn24a

@@ -1,0 +1,8 @@
+# @package _global_
+
+molecule_name: naphthalene
+data:
+  molecule_names: [naphthalene]
+
+first_stage_settings:
+  run_id: pm8ku9h9

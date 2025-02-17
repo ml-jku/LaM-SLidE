@@ -1,0 +1,8 @@
+# @package _global_
+
+dataset: all
+data:
+  scenes: [eth, hotel, zara1, zara2, univ]
+
+first_stage_settings:
+  run_id: 2rtu2d8e

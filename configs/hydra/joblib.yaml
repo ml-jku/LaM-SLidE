@@ -1,0 +1,8 @@
+defaults:
+  - default
+  - override launcher: joblib
+  - _self_
+
+launcher:
+  _target_: hydra_plugins.hydra_joblib_launcher.joblib_launcher.JoblibLauncher
+  n_jobs: 1

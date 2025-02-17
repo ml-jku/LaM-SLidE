@@ -1,0 +1,8 @@
+# @package _global_
+
+molecule_name: ethanol
+data:
+  molecule_names: [ethanol]
+
+first_stage_settings:
+  run_id: 599v639s

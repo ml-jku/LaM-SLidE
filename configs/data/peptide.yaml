@@ -1,0 +1,16 @@
+_target_: src.datasets.peptide.PeptideDataModule
+first_stage: ${first_stage}
+data_dir: ${paths.data_dir}/${datasource}/${dataset}
+num_entities: ${num_entities}
+rand_rotation: True
+rand_translation: 0.1
+shift: ${shift}
+scale: ${scale}
+n_timesteps: ${n_timesteps}
+batch_size: 16
+drop_last: True
+num_workers: 31
+pin_memory: True
+persistent_workers: True
+prefetch_factor: 2
+n_jobs: 30

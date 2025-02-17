@@ -1,0 +1,8 @@
+# @package _global_
+
+molecule_name: uracil
+data:
+  molecule_names: [uracil]
+
+first_stage_settings:
+  run_id: 1b32sh1b

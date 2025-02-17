@@ -1,0 +1,21 @@
+defaults:
+  - default
+  - override launcher: submitit_slurm
+  - _self_
+
+launcher:
+  _target_: hydra_plugins.hydra_submitit_launcher.submitit_launcher.SlurmLauncher
+  partition: qgpu
+  account: ${oc.env:SLURM_ACCOUNT}
+  timeout_min: 1020
+  tasks_per_node: ${n_gpus}
+  nodes: ${n_nodes}
+  additional_parameters:
+    gpus_per_node: ${n_gpus}
+    #gpus: ${n_gpus}
+    #nodes: ${n_nodes}
+  setup:
+    - cd ${paths.root_dir}
+    - mamba activate ${oc.env:CONDA_ENV}
+    - export HYDRA_FULL_ERROR=1
+    - export WANDB_BASE_URL=${oc.env:WANDB_BASE_URL}

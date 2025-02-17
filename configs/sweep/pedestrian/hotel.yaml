@@ -1,0 +1,8 @@
+# @package _global_
+
+dataset: hotel
+data:
+  scenes: [hotel]
+
+first_stage_settings:
+  run_id: ji5uddc8

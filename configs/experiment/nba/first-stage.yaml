@@ -1,0 +1,50 @@
+# @package _global_
+
+defaults:
+  - /data: nba
+  - /model/nba@model: first-stage
+  - override /logger: wandb
+  - override /trainer: default
+  - _self_
+
+first_stage: True
+
+# Dataset-specific parameters, these are positional mean and std of the train set.
+data:
+  batch_size: 64
+
+num_entities: 11
+
+dataset: all
+dataset_constants:
+  score:
+    shift: [47.5787, 25.0110]
+    scale: 24.7269
+  rebound:
+    shift: [47.2872, 25.0940]
+    scale: 26.5484
+  all:
+    shift: [47.43295, 25.0525]
+    scale: 25.63765
+
+shift: ${dataset_constants.${dataset}.shift}
+scale: ${dataset_constants.${dataset}.scale}
+
+logger:
+  wandb:
+    name: ${dataset}
+    project: nba-first-stage
+
+trainer:
+  log_every_n_steps: 10
+  max_epochs: 10_000
+  check_val_every_n_epoch: 10
+
+callbacks:
+  model_checkpoint:
+    monitor: val/score/pos_loss
+    mode: min
+  config_lr_scheduler:
+    _target_: src.callbacks.config_lr_scheduler.ConfigLRScheduler
+
+tags: []

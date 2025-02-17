@@ -1,0 +1,30 @@
+# @package _global_
+
+defaults:
+  - _self_
+  # - data: null
+  # - model: null
+  - callbacks: default
+  - logger: wandb
+  - trainer: default
+  - paths: default
+  - vars: null
+  - extras: default
+  - hydra: default
+  - experiment: ???
+  - sweep: null
+  - optional local: default
+  - debug: null
+
+task_name: train
+tags: ["dev"]
+train: True
+test: False
+ckpt_path: null
+test_ckpt: last
+seed: 42
+log_grads: False
+matmul_precision: high
+
+n_nodes: 1
+n_gpus: auto

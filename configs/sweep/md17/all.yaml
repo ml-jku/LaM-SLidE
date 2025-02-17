@@ -1,0 +1,9 @@
+# @package _global_
+
+molecule_name: all
+data:
+  molecule_names:
+    [aspirin, ethanol, malonaldehyde, naphthalene, salicylic, toluene, uracil]
+
+first_stage_settings:
+  run_id: n7q9b6lv

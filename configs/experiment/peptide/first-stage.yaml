@@ -1,0 +1,39 @@
+# @package _global_
+
+defaults:
+  - /model/peptide@model: first-stage
+  - /data: peptide
+  - override /logger: wandb
+  - override /trainer: default
+
+first_stage: True
+
+datasource: mdgen
+dataset: 4AA-sims
+num_entities: 8
+input_noise: 0
+shift: 0
+scale: 1
+n_timesteps: 100
+
+logger:
+  wandb:
+    name: ${dataset}-atom14
+    project: peptide-first-stage
+
+trainer:
+  log_every_n_steps: 5
+  max_epochs: 500
+  check_val_every_n_epoch: 10
+
+resume: True
+ckpt_path: null
+
+callbacks:
+  model_checkpoint:
+    monitor: val/loss
+    mode: min
+  config_lr_scheduler:
+    _target_: src.callbacks.config_lr_scheduler.ConfigLRScheduler
+
+tags: []

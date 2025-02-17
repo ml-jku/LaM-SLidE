@@ -1,0 +1,9 @@
+defaults:
+  - second-stage
+  - _self_
+
+_target_: src.models.composites.second_stage.pedestrian.CondWrapper
+n_classes: 5
+vec_in_dim: 256
+backbone:
+  vec_in_dim: ${model.vec_in_dim}

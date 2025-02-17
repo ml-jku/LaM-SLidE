@@ -1,0 +1,65 @@
+# @package _global_
+
+defaults:
+  - /model/peptide@model: second-stage
+  - /data: peptide
+  - override /logger: wandb
+  - override /trainer: default
+
+first_stage: False
+test: False
+
+first_stage_settings:
+  run_id: ihsiwhhv
+  project: peptide-first-stage
+  entity: ${oc.env:WANDB_ENTITY}
+  overwrites: []
+  model_path: null
+  last: False
+
+datasource: mdgen
+dataset: 4AA-sims
+num_entities: 8
+input_noise: 0
+shift: 0
+scale: 1.0
+n_timesteps: 1000
+
+logger:
+  wandb:
+    name: ${dataset}
+    project: peptide-second-stage
+
+trainer:
+  max_epochs: 1500
+  check_val_every_n_epoch: 50
+  precision: bf16-mixed
+  gradient_clip_val: 0.5
+
+ckpt_path: null
+resume: True
+
+callbacks:
+  model_checkpoint:
+    monitor: val/loss
+    mode: min
+  config_lr_scheduler:
+    _target_: src.callbacks.config_lr_scheduler.ConfigLRScheduler
+  sampling:
+    _target_: src.callbacks.si_sample_callback.SIAtom14SampleCallback
+    data_dir: ${paths.data_dir}/${datasource}/${dataset}/val
+    interval: 1
+    num_rollouts: 10
+    tica_lagtime: 1000
+    proteins:
+      - DNYP
+      - VMHV
+      - YYTK
+      - FART
+      - KCWL
+      - KITV
+      - MHTN
+      - MSTP
+
+tags: []
+seed: 43

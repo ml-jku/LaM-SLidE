@@ -1,0 +1,18 @@
+_target_: src.datasets.nba.NBADatamodule
+first_stage: ${first_stage}
+data_dir: ${paths.data_dir}/social_vae_data/nba_processed/
+scenes: ["score", "rebound"]
+num_frames: 20
+flip: True
+rand_rotation: True
+rand_translation: 0.1
+shift: ${shift}
+scale: ${scale}
+num_entities: ${num_entities}
+batch_size: 256
+drop_last: True
+num_workers: 15
+pin_memory: True
+persistent_workers: True
+prefetch_factor: 2
+n_jobs: 2
