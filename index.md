@@ -99,7 +99,6 @@ Given the observed states $$\mathbf{y}^{[1:T_o]}$$, our goal is to predict the f
 ## Basketball (NBA)
 <div style="display: flex; justify-content: left; margin: 20px 0;">
   <div style="background-color: #ffffff; border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; width: 350px;">
-    <h3 style="margin: 0 0 10px 0; font-size: 16px;">Setup</h3>
     <div style="display: flex; align-items: center; margin: 8px 0;">
       <i class="fa-solid fa-clock" style="margin-right: 8px;"></i>
       <span>Conditioning states: 8</span>
@@ -147,6 +146,23 @@ Given the observed states $$\mathbf{y}^{[1:T_o]}$$, our goal is to predict the f
 
 
 ## Organic Molecules (MD17)
+<div style="display: flex; justify-content: left; margin: 20px 0;">
+  <div style="background-color: #ffffff; border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; width: 350px;">
+    <div style="display: flex; align-items: center; margin: 8px 0;">
+      <i class="fa-solid fa-clock" style="margin-right: 8px;"></i>
+      <span>Conditioning states: 10</span>
+    </div>
+    <div style="display: flex; align-items: center; margin: 8px 0;">
+      <i class="fa-regular fa-clock" style="margin-right: 8px;"></i>
+      <span>Future states: 20</span>
+    </div>
+        <div style="display: flex; align-items: center; margin: 8px 0;">
+      <i class="fa-solid fa-globe" style="margin-right: 8px;"></i>
+      <span>Total states: 30</span>
+    </div>
+  </div>
+</div>
+
 ### Sampled Trajectories 
 <div style="display: flex; justify-content: center;align-items: center;">
   <img src="assets/aspirin.gif" width="300" />
@@ -160,6 +176,27 @@ Given the observed states $$\mathbf{y}^{[1:T_o]}$$, our goal is to predict the f
 </div>
 
 ## Tetrapeptides
+<div style="display: flex; justify-content: left; margin: 20px 0;">
+  <div style="background-color: #ffffff; border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; width: 350px;">
+    <div style="display: flex; align-items: center; margin: 8px 0;">
+      <i class="fa-solid fa-clock" style="margin-right: 8px;"></i>
+      <span>Conditioning states: 1</span>
+    </div>
+    <div style="display: flex; align-items: center; margin: 8px 0;">
+      <i class="fa-regular fa-clock" style="margin-right: 8px;"></i>
+      <span>Future states: 9 999</span>
+    </div>
+        <div style="display: flex; align-items: center; margin: 8px 0;">
+      <i class="fa-solid fa-globe" style="margin-right: 8px;"></i>
+      <span>Total states: 10 000</span>
+    </div>
+      <div style="display: flex; align-items: center; margin: 8px 0;">
+      <i class="fa-solid fa-rotate-right" style="margin-right: 8px;"></i>
+      <span>Number of rollouts: 10</span>
+    </div>
+  </div>
+</div>
+
 ### Sampled Trajectories 
 <div style="display: flex; justify-content: center;align-items: center;">
   <img src="assets/APWF_text.gif" width="300" />
