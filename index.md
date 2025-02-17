@@ -6,6 +6,9 @@ date:   2025-02-15 09:00:00 +0200
 usemathjax: true
 ---
 
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 <p align="center">
   <img src="assets/overview.svg" width="100%" />
