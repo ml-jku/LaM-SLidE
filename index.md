@@ -54,7 +54,7 @@ For many dynamical systems of interest we often do not directly have access to t
 # Method
 
 ## Problem definition and predictive aim
-Lets assume we have a sequence of measurement $$\mathbf{y}^{[1:T]}=\mathbf{y}^1,\dots,\mathbf{y}^T$$ of a dynamical system. We consider spatial state spaces with $$N$$ entities, where each state $$\mathbf{y}^t$$ consists of the positions $$\mathbf{X}^t\in\mathbb{R}^{N\times D_x}$$ and features $$\mathbf{M}^t\in \mathbb{R}^{N\times D_m}$$ for any entity at time $t$. 
+Lets assume we have a sequence of measurement $$\mathbf{y}^{[1:T]}=\mathbf{y}^1,\dots,\mathbf{y}^T$$ for a dynamical system of interest. We consider spatial state spaces with $$N$$ entities, where each state $$\mathbf{y}^t$$ consists of the positions $$\mathbf{X}^t\in\mathbb{R}^{N\times D_x}$$ and features $$\mathbf{M}^t\in \mathbb{R}^{N\times D_m}$$ for an entity at time $$t$$. 
 
 For example, in a basketball game scenario:
 
@@ -216,4 +216,4 @@ Given the observed states $$\mathbf{y}^{[1:T_o]}$$, our goal is to predict the f
 
 # Further reads
 
-Another approach of modeling dynamical systems in latent space was introduced in[UPT: Universal Phisicy Transformers](https://arxiv.org/abs/2402.12365) in the field of fluid dynamics (Navier-Stokes equations). Unlike our approach, UPT models systems with billions of particles that become untrackable individually. However, for these systems, tracking individual particles is often unnecessary - instead, the underlying field is modeled, as the primarily interst lies in the overall behavior of the system and not the individual particles. E.g. in weather forcasting we are not interested where each individual atom is placed in the atmosphere but want to predicte the overall weather.
+Another approach of modeling dynamical systems in latent space was introduced in [UPT: Universal Physics Transformers](https://arxiv.org/abs/2402.12365) in the field of fluid dynamics (Navier-Stokes equations). Unlike our approach, UPT models systems with billions of particles that become untrackable individually. However, for these systems, tracking individual particles is often unnecessary - instead, the underlying field is modeled, as the primarily interst lies in the overall behavior of the system and not the individual particles. E.g. in weather forcasting we are not interested where each individual atom is placed in the atmosphere but want to predicte the overall weather.
