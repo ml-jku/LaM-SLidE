@@ -1,3 +1,12 @@
+---
+layout: default
+title:  "{La}tent Space {M}odeling of Spatial Dynamical {S}ystems via {Li}nke{d} {E}ntities"
+description: Blog post
+date:   2025-02-15 09:00:00 +0200
+usemathjax: true
+---
+
+
 <p align="center">
   <img src="assets/overview.svg" width="100%" />
 </p>
