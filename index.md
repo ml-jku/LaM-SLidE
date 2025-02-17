@@ -39,36 +39,36 @@ $$
 $$
 
 
-Here, $\mathbf{s}$ represents the state of the system - imagine, for instance, the current weather conditions including temperature and humidity. The variable $t$ denotes the time point at which we observe the state, while $\mathbf{u}$ represents a control parameter. This control could be something like a hail prevention airplane spraying silver iodide into clouds, or in a simpler example, applying force to a cart supporting a pendulum. The parameter $\beta$ characterizes the system's inherent properties, such as a pendulum's length or mass. The system can be also influenced by random disturbances $\mathbf{d}$.
+Here, $$\mathbf{s}$$ represents the state of the system - imagine, for instance, the current weather conditions including temperature and humidity. The variable $t$ denotes the time point at which we observe the state, while $$\mathbf{u}$$ represents a control parameter. This control could be something like a hail prevention airplane spraying silver iodide into clouds, or in a simpler example, applying force to a cart supporting a pendulum. The parameter $$\beta$$ characterizes the system's inherent properties, such as a pendulum's length or mass. The system can be also influenced by random disturbances $$\mathbf{d}$$.
 
-At its core, $f$ is a vector-valued function that describes how the system state changes given its current state $\mathbf{s}$. Which can be seen as a vector field, where at each point in the state space, $f$ indicates the direction and magnitude of change.
+At its core, $f$ is a vector-valued function that describes how the system state changes given its current state $$\mathbf{s}$$. Which can be seen as a vector field, where at each point in the state space, $f$ indicates the direction and magnitude of change.
 
-An important practical consideration is that we rarely have access to the complete state $\mathbf{s}$. Instead, we typically only have access to measurement $\mathbf{y}=\mathbf{g}(\mathbf{s},t) + \mathbf{n}$. Consider the human brain as an example: while it contains billions of neurons, we can only measure the activity of a small fraction of them at any given time. Furthermore, the system might be influenced by latent variables - hidden factors that we cannot measure and measurements can also include noise $\mathbf{n}$
+An important practical consideration is that we rarely have access to the complete state $$\mathbf{s}$$. Instead, we typically only have access to measurement $$\mathbf{y}=\mathbf{g}(\mathbf{s},t) + \mathbf{n}$$. Consider the human brain as an example: while it contains billions of neurons, we can only measure the activity of a small fraction of them at any given time. Furthermore, the system might be influenced by latent variables - hidden factors that we cannot measure and measurements can also include noise $$\mathbf{n}$$
 
-For many dynamical systems of interest we often do not directly have access to the function $f$, only to measurements $\mathbf{y}$ which makes it very attractive to apply **Machine Learning** methods.
+For many dynamical systems of interest we often do not directly have access to the function $$f$$, only to measurements $$\mathbf{y}$$ which makes it very attractive to apply **Machine Learning** methods.
 
 # Method
 
 ## Problem definition and predictive aim
-Lets assume we have a sequence of measurement $\mathbf{y}^{[1:T]}=\mathbf{y}^1,\dots,\mathbf{y}^T$ of a dynamical system. We consider spatial state spaces with $N$ entities, where each state $\mathbf{y}^t$ consists of the positions $\mathbf{X}^t\in\mathbb{R}^{N\times D_x}$ and features $\mathbf{M}^t\in \mathbb{R}^{N\times D_m}$ for any entity at time $t$. 
+Lets assume we have a sequence of measurement $$\mathbf{y}^{[1:T]}=\mathbf{y}^1,\dots,\mathbf{y}^T$$ of a dynamical system. We consider spatial state spaces with $$N$$ entities, where each state $$\mathbf{y}^t$$ consists of the positions $$\mathbf{X}^t\in\mathbb{R}^{N\times D_x}$$ and features $$\mathbf{M}^t\in \mathbb{R}^{N\times D_m}$$ for any entity at time $t$. 
 
 For example, in a basketball game scenario:
 
-* $\mathbf{X}^t$ captures the player's positions on the court
-* $\mathbf{M}^t$ encodes player attributes such as team affiliation and time spent in play
+* $$\mathbf{X}^t$$ captures the player's positions on the court
+* $$\mathbf{M}^t$$ encodes player attributes such as team affiliation and time spent in play
 
 or for a a molecule:
-* $\mathbf{X}^t$ captures the atoms's postions
-* $\mathbf{M}^t$ encodes the atom type, where $\mathbf{M}^t=\mathbf{M}$
+* $$\mathbf{X}^t$$ captures the atoms's postions
+* $$\mathbf{M}^t$$ encodes the atom type, where $\mathbf{M}^t=\mathbf{M}$
 
 <br>
 
-We can partition the state sequence $\mathbf{y}^{[1:T]}=\mathbf{y}^{1},\dots, \mathbf{y}^{T_o},\dots,\mathbf{y}^{T}$ into:
+We can partition the state sequence $$\mathbf{y}^{[1:T]}=\mathbf{y}^{1},\dots, \mathbf{y}^{T_o},\dots,\mathbf{y}^{T}$$ into:
 
-* An observation sequence $\mathbf{y}^{[1:T_o]}=\mathbf{y}^1,\dots,\mathbf{y}^{T_o}$ of length $T_o$.
-* A future sequence $\mathbf{y}^{[T_o+1:T]}=\mathbf{y}^{T_o+1},\dots,\mathbf{y}^{T}$ of length $T-T_o$.
+* An observation sequence $$\mathbf{y}^{[1:T_o]}=\mathbf{y}^1,\dots,\mathbf{y}^{T_o}$$ of length $$T_o$$.
+* A future sequence $$\mathbf{y}^{[T_o+1:T]}=\mathbf{y}^{T_o+1},\dots,\mathbf{y}^{T}$$ of length $$T-T_o$$.
 
-Given the observed states $\mathbf{y}^{[1:T_o]}$, our goal is to predict the future states $\mathbf{y}^{[T_o+1:T]}$ 
+Given the observed states $$\mathbf{y}^{[1:T_o]}$$, our goal is to predict the future states $$\mathbf{y}^{[T_o+1:T]}$$ 
 
 ## LaM-SLidE
 
