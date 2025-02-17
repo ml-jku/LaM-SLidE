@@ -6,6 +6,10 @@ date:   2025-02-15 09:00:00 +0200
 usemathjax: true
 ---
 
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -75,9 +79,10 @@ Given the observed states $$\mathbf{y}^{[1:T_o]}$$, our goal is to predict the f
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
   <div style="flex: 1;">
     <h3>Entity identifiers</h3>
+    One of our key contribution are <b>Entity Identifiers</b>.
     Each entity in our system gets a unique ID - think of it like name tags for atoms. In the image on the right you can see an Aspirin molecule, were we assing IDs to the individual atoms. For better illustration we only labeld four atoms, but imagine that every atom gets an ID.
   </div>
-  <div style="flex: 1;">
+  <div style="flex: 1;display: flex; justify-content: center;">
     <img src="assets/aspirin_id.png" width="300" />
   </div>
 </div>
@@ -92,6 +97,23 @@ Given the observed states $$\mathbf{y}^{[1:T_o]}$$, our goal is to predict the f
 
 
 ## Basketball (NBA)
+<div style="display: flex; justify-content: left; margin: 20px 0;">
+  <div style="background-color: #ffffff; border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px; width: 350px;">
+    <h3 style="margin: 0 0 10px 0; font-size: 16px;">Setup</h3>
+    <div style="display: flex; align-items: center; margin: 8px 0;">
+      <i class="fa-solid fa-clock" style="margin-right: 8px;"></i>
+      <span>Conditioning states: 8</span>
+    </div>
+    <div style="display: flex; align-items: center; margin: 8px 0;">
+      <i class="fa-regular fa-clock" style="margin-right: 8px;"></i>
+      <span>Future states: 12</span>
+    </div>
+        <div style="display: flex; align-items: center; margin: 8px 0;">
+      <i class="fa-solid fa-globe" style="margin-right: 8px;"></i>
+      <span>Total states: 12</span>
+    </div>
+  </div>
+</div>
 
 ### Sampled Trajectories 
 #### Rebound
