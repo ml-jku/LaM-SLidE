@@ -2,5 +2,6 @@ title: LaM-SLidE
 description: "LaM-SLidE - {La}tent Space {M}odeling of Spatial Dynamical {S}ystems via {Li}nke{d} {E}ntities"
 show_downloads: false
 theme: jekyll-theme-cayman
+google_analytics: G-H2V5CB2WB6
 kramdown:
   math_engine: mathjax

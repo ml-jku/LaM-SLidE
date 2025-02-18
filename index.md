@@ -22,10 +22,10 @@ usemathjax: true
 # Introduction
 Understanding the dynamics of spatial systems is a fundamental challenge 
 in many scientific and engineering domains. In this paper, we focus on spatial dynamical systems, where *scenes* are composed of distinguishable entities at defined spatial locations. 
-Modeling temporal trajectories of such entities quickly becomes challenging, especially when:
+Modeling temporal trajectories of such entities quickly becomes challenging, especially when
 
   * stochasticity is involved, and
-  * when entities should be *traceable*.
+  * entities should be *traceable*.
     
 A prime example is molecular dynamics, where trajectories of individual atoms 
 are modeled via Langevin dynamics, which accounts for omitted degrees of freedom 
