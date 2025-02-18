@@ -15,7 +15,7 @@
 
 </center>
 
-[**Project Page**](https://ml-jku.github.io/LaM-SLidE/)
+[**Project Page**](https://ml-jku.github.io/LaM-SLidE/) | [**Paper**](https://arxiv.org/abs/2502.12128/)
 
 
 Implementation of **LaM-SLidE** (Latent Space Modeling of Spatial Dynamical Systems via Linked Entities).
