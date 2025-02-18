@@ -109,7 +109,7 @@ Given the observed states $$\mathbf{y}^{[1:T_o]}$$, our goal is to predict the f
     </div>
         <div style="display: flex; align-items: center; margin: 8px 0;">
       <i class="fa-solid fa-globe" style="margin-right: 8px;"></i>
-      <span>Total states: 12</span>
+      <span>Total states: 20</span>
     </div>
   </div>
 </div>
