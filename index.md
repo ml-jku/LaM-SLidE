@@ -99,6 +99,13 @@ Given the observed states $$\mathbf{y}^{[1:T_o]}$$, our goal is to predict the f
   <img src="assets/method.svg" width="100%" />
 </p>
 
+### Latent Flow-based model
+Our latent flow-based model predicts the whole trajectory based on the conditioning $$\mathbf{C}$$. The predicted latent vectors for each timestep can then be decoded by the IDs.
+
+<p align="center">
+  <img src="assets/latent-model.svg" width="100%" />
+</p>
+
 # Experiments
 
 
