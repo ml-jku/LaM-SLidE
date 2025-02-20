@@ -95,15 +95,18 @@ Given the observed states $$\mathbf{y}^{[1:T_o]}$$, our goal is to predict the f
 
 <br>
 
+### Encoding - Decoding
+
+
 <p align="center">
   <img src="assets/method.svg" width="100%" />
 </p>
 
 ### Latent Flow-based model
-Our latent flow-based model predicts the whole trajectory based on the conditioning $$\mathbf{C}$$. The predicted latent vectors for each timestep can then be decoded by the IDs.
+The latent flow-based model $$\boldsymbol{v}_\theta(\mathbf{o}_\tau,\tau,\mathbf{C})$$ learns a conditional velocity field that transforms Gaussian noise under a conditioning $$\mathbf{C}$$ into a complete trajectory, where $$\mathbf{C}$$ is a combination of mask and conditioning tokens. This approach enables prediction of multiple timesteps in paralell. The predicted latent vectors at each timestep can then be decoded by the IDs.
 
 <p align="center">
-  <img src="assets/latent-model.svg" width="100%" />
+  <img src="assets/latent-model.svg" width="80%" />
 </p>
 
 # Experiments
