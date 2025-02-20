@@ -158,3 +158,19 @@ Our source code was inpired by previous work:
 - [flux](https://github.com/black-forest-labs/flux) - Latent space model architecture.
 - [SiT](https://github.com/willisma/SiT) - Stochastic interpolants framework.
 - [UPT](https://github.com/ml-jku/UPT/) - Encoder - decoder architecture.
+
+# Citation
+
+If you like our work, please consider giving it a star 🌟 and cite us
+
+```
+@misc{sestak2025lamslidelatentspacemodeling,
+      title={LaM-SLidE: Latent Space Modeling of Spatial Dynamical Systems via Linked Entities}, 
+      author={Florian Sestak and Artur Toshev and Andreas Fürst and Günter Klambauer and Andreas Mayr and Johannes Brandstetter},
+      year={2025},
+      eprint={2502.12128},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2502.12128}, 
+}
+```

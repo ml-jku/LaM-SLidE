@@ -26,9 +26,8 @@ backbone:
   dim_input: 128
   dim_latent: 32
   act:
-    _target_: torch.nn.GELU
+    _target_: src.modules.torch_modules.GELU
     _partial_: True
-    approximate: tanh
 
   embed_entity:
     _target_: src.modules.entity_embeddings.EntityEmbeddingOrthogonal

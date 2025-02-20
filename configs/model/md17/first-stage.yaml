@@ -29,7 +29,7 @@ backbone:
   dim_input: 128
   dim_latent: 32
   act:
-    _target_: src.modules.torch_modules.Sin
+    _target_: src.modules.torch_modules.GELU
     _partial_: True
 
   embed_entity:
