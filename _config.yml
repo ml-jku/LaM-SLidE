@@ -1,7 +1,12 @@
-title: LaM-SLidE
-description: "LaM-SLidE - {La}tent Space {M}odeling of Spatial Dynamical {S}ystems via {Li}nke{d} {E}ntities"
-show_downloads: false
 theme: jekyll-theme-cayman
+title: LaM-SLidE - {La}tent Space {M}odeling of Spatial Dynamical {S}ystems via {Li}nke{d} {E}ntities
+description: Florian Sestak, Artur Toshev, Andreas Fürst, Günter Klambauer, Andreas Mayr, Johannes Brandstetter
+show_downloads: false
+
 google_analytics: G-H2V5CB2WB6
 kramdown:
   math_engine: mathjax
+
+github:
+  repository_url: https://github.com/ml-jku/LaM-SLidE
+  paper_url: https://arxiv.org/abs/2502.12128
