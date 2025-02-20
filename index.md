@@ -95,8 +95,9 @@ Given the observed states $$\mathbf{y}^{[1:T_o]}$$, our goal is to predict the f
 
 <br>
 
-### Encoding - Decoding
+### Encoder - Decoder
 
+The encoder and decoder learn to reconstruct the entities at a specific timestep $$t$$ based on the assigned IDs from a latent representation $$\mathbf{z}$$
 
 <p align="center">
   <img src="assets/method.svg" width="100%" />
