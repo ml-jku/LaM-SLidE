@@ -4,6 +4,7 @@ description: Florian Sestak, Artur Toshev, Andreas Fürst, Günter Klambauer, An
 show_downloads: false
 
 google_analytics: G-H2V5CB2WB6
+usemathjax: true
 kramdown:
   math_engine: mathjax
 
